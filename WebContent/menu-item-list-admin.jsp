@@ -19,7 +19,7 @@
 	<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 	<h2>Menu Items</h2>
 	<c:if test="${removeMenuItemStatus}">
-		<p class="notification">Item removed from Menu Successfully</p>
+		<p class="notification">${removedMenuItemName} removed from menu successfully.</p>
 	</c:if>
 	<table>
 		<tr>

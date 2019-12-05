@@ -20,7 +20,7 @@
 	<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 	<h2>Menu Items</h2>
 	<c:if test="${addCartStatus}">
-		<p class="notification">Item added to Cart Successfully</p>
+		<p class="notification">${addedCartItemName} added to cart successfully.</p>
 	</c:if>
 	<table>
 		<tr>

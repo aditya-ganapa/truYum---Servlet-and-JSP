@@ -41,6 +41,7 @@ public class AddToCartServlet extends HttpServlet {
 		List<MenuItem> menuItemList = menuItemDao.getMenuItemListCustomer();
 		request.setAttribute("menuItemList", menuItemList);
 		request.setAttribute("addCartStatus", true);
+		request.setAttribute("addedCartItemName", menuItemDao.getMenuItem(menuItemId).getName());
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("menu-item-list-customer.jsp");
 		requestDispatcher.forward(request, response);
 	}

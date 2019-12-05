@@ -41,9 +41,7 @@ public class EditMenuItemServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		menuItemDao.modifyMenuItem(menuItem);
-		
-		request.setAttribute("menuItemId", request.getParameter("menuItemId"));
-		
+		request.setAttribute("title", request.getParameter("title"));
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("edit-menu-item-status.jsp");
 		requestDispatcher.forward(request, response);
 	}

@@ -17,7 +17,7 @@
 </nav>
 <section>
 	<h2>Edit Menu Item Status</h2>
-	<p class="edit-notification">Menu item ${menuItemId} saved successfully</p>
+	<p class="edit-notification">${title} details edited successfully.</p>
 </section>
 <footer>
 	<p>Copyright &copy; 2019</p>

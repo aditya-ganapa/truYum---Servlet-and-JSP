@@ -26,6 +26,7 @@ public class DeleteMenuItemServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		long menuItemId = Long.parseLong(request.getParameter("menuItemId"));
+		request.setAttribute("removedMenuItemName", menuItemDao.getMenuItem(menuItemId).getName());
 		menuItemDao.removeMenuItem(menuItemId);
 		request.setAttribute("removeMenuItemStatus", true);
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("ShowMenuItemListAdmin");

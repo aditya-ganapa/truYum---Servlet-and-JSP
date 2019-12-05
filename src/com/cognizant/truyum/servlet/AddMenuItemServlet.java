@@ -41,9 +41,7 @@ public class AddMenuItemServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		menuItemDao.addMenuItem(menuItem);
-		
-		request.setAttribute("menuItemId", request.getParameter("id"));
-		
+		request.setAttribute("title", request.getParameter("title"));
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("add-menu-item-status.jsp");
 		requestDispatcher.forward(request, response);
 	}
