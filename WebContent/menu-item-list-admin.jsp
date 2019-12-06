@@ -39,7 +39,7 @@
 				<td><fmt:formatDate value="${menuItem.dateOfLaunch}" pattern="dd/MM/yyyy"/></td>	
 				<td><c:out value="${menuItem.category}"/></td>		
 				<td><c:if test="${menuItem.freeDelivery}">Yes</c:if><c:if test="${!menuItem.freeDelivery}">No</c:if></td>		
-				<td><a href="ShowEditMenuItem?menuItemId=<c:out value='${menuItem.id}'/>">Edit</a> / <a href="DeleteMenuItem?menuItemId=<c:out value='${menuItem.id}'/>">Delete</a></td>	
+				<td><a href="ShowEditMenuItem?menuItemId=<c:out value='${menuItem.id}'/>">Edit</a> | <a href="DeleteMenuItem?menuItemId=<c:out value='${menuItem.id}'/>">Delete</a></td>	
 			</tr>
 		</c:forEach>
 	</table>
