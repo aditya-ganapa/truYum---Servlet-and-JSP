@@ -91,7 +91,7 @@ function validateLoginAdminForm() {
 		alert("Password is required.");
 		return false;
 	}
-	else if (username != "Aditya") {
+	else if (username != "aditya") {
 		alert("Invalid Username.");
 		return false;
 	}
@@ -115,7 +115,7 @@ function validateLoginCustomerForm() {
 		alert("Password is required.");
 		return false;
 	}
-	else if (username != "Aditya") {
+	else if (username != "aditya") {
 		alert("Invalid Username.");
 		return false;
 	}

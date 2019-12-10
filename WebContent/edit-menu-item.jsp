@@ -29,7 +29,7 @@
 			<tr>
 				<td>
 	    			<label for="field-price">Price (Rs.)</label><br>
-					<input type="text" id="field-price" name="price"  value="<fmt:formatNumber value='${menuItem.price}' minFractionDigits='0' maxFractionDigits='2'/>">
+					<input type="text" id="field-price" name="price"  value="<fmt:formatNumber value='${menuItem.price}' minFractionDigits='0' maxFractionDigits='2' groupingUsed = "false"/>">
 				</td>
 				<td>
 					Active<br>

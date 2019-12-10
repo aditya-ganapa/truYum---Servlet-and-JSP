@@ -35,7 +35,7 @@
 				<td><c:out value="${menuItem.name}"/></td>
 				<td><c:if test="${menuItem.freeDelivery}">Yes</c:if><c:if test="${!menuItem.freeDelivery}">No</c:if></td>
 				<td><fmt:formatNumber value="${menuItem.price}" type="currency"  currencySymbol="Rs. "/></td>
-				<td><c:out value="${menuItem.category}"></c:out></td>
+				<td><c:out value="${menuItem.category}"/></td>
 				<td><a href="AddToCart?menuItemId=<c:out value='${menuItem.id}'/>">Add to Cart</a></td>	
 			</tr>
 		</c:forEach>
