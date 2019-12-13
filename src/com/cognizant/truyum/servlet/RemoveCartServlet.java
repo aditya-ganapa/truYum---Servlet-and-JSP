@@ -22,6 +22,13 @@ public class RemoveCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		MenuItemDao menuItemDao = null;
+		try {
+			menuItemDao = new MenuItemDaoCollectionImpl();
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		long menuItemId = Long.parseLong(request.getParameter("menuItemId"));
 		CartDao cartDao = new CartDaoCollectionImpl();
 		long userId = 1;
@@ -31,17 +38,12 @@ public class RemoveCartServlet extends HttpServlet {
 		try {
 			cart = cartDao.getAllCartItems(userId);
 		} catch (CartEmptyException e) {
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("cart-empty.jsp");
+			request.setAttribute("removedCartItemName", menuItemDao.getMenuItem(menuItemId).getName());
+			request.setAttribute("removeLastCartItemStatus", true);
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("cart.jsp");
 			requestDispatcher.forward(request, response);
 		}
 		request.setAttribute("cart", cart);
-		MenuItemDao menuItemDao = null;
-		try {
-			menuItemDao = new MenuItemDaoCollectionImpl();
-		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 		request.setAttribute("removedCartItemName", menuItemDao.getMenuItem(menuItemId).getName());
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("cart.jsp");
 		try {
