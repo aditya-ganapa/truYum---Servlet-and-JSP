@@ -35,6 +35,7 @@ public class RemoveCartServlet extends HttpServlet {
 		cartDao.removeCartItem(userId, menuItemId);
 		request.setAttribute("removeCartItemStatus", true);
 		Cart cart = null;
+		boolean empty = false;
 		try {
 			cart = cartDao.getAllCartItems(userId);
 		} catch (CartEmptyException e) {
@@ -42,13 +43,18 @@ public class RemoveCartServlet extends HttpServlet {
 			request.setAttribute("removeLastCartItemStatus", true);
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("cart.jsp");
 			requestDispatcher.forward(request, response);
+			empty = true;
 		}
-		request.setAttribute("cart", cart);
-		request.setAttribute("removedCartItemName", menuItemDao.getMenuItem(menuItemId).getName());
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("cart.jsp");
-		try {
+		if (!empty) {
+			request.setAttribute("cart", cart);
+			request.setAttribute("removedCartItemName", menuItemDao.getMenuItem(menuItemId).getName());
+			request.setAttribute("cartNotEmpty", true);
+			request.setAttribute("cartSize", cart.getMenuItemList().size());
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("cart.jsp");
+	//	try {
 			requestDispatcher.forward(request, response);
-		} catch (IllegalStateException e) {
+	//	} catch (IllegalStateException e) {
+	//	}
 		}
 	}
 }
